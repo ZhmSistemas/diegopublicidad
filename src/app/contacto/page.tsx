@@ -10,12 +10,18 @@ const contactInfo = [
 export default function ContactoPage() {
   return (
     <>
-      <section className="bg-gradient-to-br from-primary via-primary to-primary-light py-20">
-        <div className="container-page text-center">
+      <section className="relative overflow-hidden bg-black py-20">
+        <img
+          src="https://res.cloudinary.com/zhamat-tecnologia/image/upload/v1781113308/diego/contactanos_rjj18p.jpg"
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="container-page relative text-center">
           <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
             Contáctanos
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-blue-200">
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-300">
             Estamos aquí para ayudarte. Escríbenos o visítanos.
           </p>
         </div>
@@ -79,7 +85,7 @@ export default function ContactoPage() {
                 </div>
                 <button
                   type="submit"
-                  className="rounded-lg bg-primary px-8 py-3 text-sm font-semibold text-white transition-colors hover:bg-primary-light"
+                  className="rounded-lg bg-gray-900 px-8 py-3 text-sm font-semibold text-white transition-colors hover:bg-gray-800"
                 >
                   Enviar mensaje
                 </button>

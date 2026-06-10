@@ -57,7 +57,7 @@ export default function Home() {
               <span className="text-accent"> impresiones </span>
               de alta calidad
             </h1>
-            <p className="mt-6 text-lg leading-relaxed text-blue-200">
+            <p className="mt-6 text-lg leading-relaxed text-gray-300">
               Somos tu aliado en comunicación visual. Ofrecemos servicios
               completos de litografía, impresión digital y diseño gráfico con
               los más altos estándares de calidad.
@@ -163,19 +163,25 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-accent py-20">
-        <div className="container-page text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-primary">
+      <section className="relative overflow-hidden bg-black py-20">
+        <img
+          src="https://images.unsplash.com/photo-1554224155-8726b3f00c44?w=1600&q=80"
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="container-page relative text-center">
+          <h2 className="text-3xl font-bold tracking-tight text-white">
             ¿Listo para tu próximo proyecto?
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-primary/80">
+          <p className="mx-auto mt-4 max-w-xl text-gray-300">
             Solicita una cotización sin compromiso y descubre la calidad de
             nuestro servicio.
           </p>
           <div className="mt-8">
             <Link
               href="/cotizar"
-              className="inline-flex items-center gap-2 rounded-lg bg-primary px-8 py-3 text-sm font-semibold text-white transition-all hover:bg-primary-light"
+              className="inline-flex items-center gap-2 rounded-lg bg-gray-900 px-8 py-3 text-sm font-semibold text-white transition-all hover:bg-gray-800"
             >
               Solicitar Cotización
               <span aria-hidden="true">&rarr;</span>

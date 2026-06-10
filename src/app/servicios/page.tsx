@@ -72,12 +72,18 @@ const serviceCategories = [
 export default function ServiciosPage() {
   return (
     <>
-      <section className="bg-gradient-to-br from-primary via-primary to-primary-light py-20">
-        <div className="container-page text-center">
+      <section className="relative overflow-hidden bg-black py-20">
+        <img
+          src="https://res.cloudinary.com/zhamat-tecnologia/image/upload/v1781113224/diego/servicios_mvxazs.jpg"
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="container-page relative text-center">
           <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
             Nuestros Servicios
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-blue-200">
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-300">
             Ofrecemos soluciones completas de impresión y diseño para empresas y
             particulares.
           </p>
@@ -139,7 +145,7 @@ export default function ServiciosPage() {
           <div className="mt-6">
             <Link
               href="/cotizar"
-              className="inline-flex items-center gap-2 rounded-lg bg-primary px-8 py-3 text-sm font-semibold text-white transition-all hover:bg-primary-light"
+              className="inline-flex items-center gap-2 rounded-lg bg-gray-900 px-8 py-3 text-sm font-semibold text-white transition-all hover:bg-gray-800"
             >
               Solicitar Cotización
               <span aria-hidden="true">&rarr;</span>

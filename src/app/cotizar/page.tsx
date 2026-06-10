@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
 type ProductType = {
@@ -313,8 +314,16 @@ export default function CotizarPage() {
   if (submitted) {
     return (
       <>
-        <section className="bg-gradient-to-br from-primary via-primary to-primary-light py-20">
-          <div className="container-page text-center">
+        <section className="relative overflow-hidden bg-black py-20">
+          <Image
+            src="https://res.cloudinary.com/zhamat-tecnologia/image/upload/v1781113478/diego/litografia_a6gv7t.avif"
+            alt=""
+            width={1600}
+            height={500}
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/60" />
+          <div className="container-page relative text-center">
             <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
               Cotización Enviada
             </h1>
@@ -342,12 +351,20 @@ export default function CotizarPage() {
 
   return (
     <>
-      <section className="bg-gradient-to-br from-primary via-primary to-primary-light py-16">
-        <div className="container-page text-center">
+      <section className="relative overflow-hidden bg-black py-16">
+        <Image
+          src="https://res.cloudinary.com/zhamat-tecnologia/image/upload/v1781113478/diego/litografia_a6gv7t.avif"
+          alt=""
+          width={1600}
+          height={500}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="container-page relative text-center">
           <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
             Solicitar Cotización
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-blue-200">
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-300">
             Completa los pasos para recibir una cotización personalizada.
           </p>
         </div>
@@ -510,7 +527,7 @@ export default function CotizarPage() {
                       type="button"
                       onClick={nextStep}
                       disabled={!canGoNext()}
-                      className="rounded-lg bg-primary px-8 py-3 text-sm font-semibold text-white transition-colors hover:bg-primary-light disabled:cursor-not-allowed disabled:opacity-50"
+                      className="rounded-lg bg-gray-900 px-8 py-3 text-sm font-semibold text-white transition-colors hover:bg-gray-800 disabled:cursor-not-allowed disabled:opacity-50"
                     >
                       Continuar
                     </button>
@@ -665,7 +682,7 @@ export default function CotizarPage() {
                       type="file"
                       onChange={(e) => setFiles(e.target.files)}
                       accept=".pdf,.ai,.psd,.cdr,.jpg,.jpeg,.png"
-                      className="mt-4 block w-full text-sm text-text-secondary file:mr-4 file:rounded-lg file:border-0 file:bg-primary file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white file:cursor-pointer hover:file:bg-primary-light"
+                      className="mt-4 block w-full text-sm text-text-secondary file:mr-4 file:rounded-lg file:border-0 file:bg-gray-900 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white file:cursor-pointer hover:file:bg-gray-800"
                     />
                   </div>
 
@@ -681,7 +698,7 @@ export default function CotizarPage() {
                       type="button"
                       onClick={nextStep}
                       disabled={!canGoNext()}
-                      className="rounded-lg bg-primary px-8 py-3 text-sm font-semibold text-white transition-colors hover:bg-primary-light disabled:cursor-not-allowed disabled:opacity-50"
+                      className="rounded-lg bg-gray-900 px-8 py-3 text-sm font-semibold text-white transition-colors hover:bg-gray-800 disabled:cursor-not-allowed disabled:opacity-50"
                     >
                       Continuar
                     </button>
@@ -767,7 +784,7 @@ export default function CotizarPage() {
                       type="button"
                       onClick={nextStep}
                       disabled={!canGoNext()}
-                      className="rounded-lg bg-primary px-8 py-3 text-sm font-semibold text-white transition-colors hover:bg-primary-light disabled:cursor-not-allowed disabled:opacity-50"
+                      className="rounded-lg bg-gray-900 px-8 py-3 text-sm font-semibold text-white transition-colors hover:bg-gray-800 disabled:cursor-not-allowed disabled:opacity-50"
                     >
                       Revisar Cotización
                     </button>

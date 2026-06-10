@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const team = [
@@ -17,12 +18,20 @@ const values = [
 export default function NosotrosPage() {
   return (
     <>
-      <section className="bg-gradient-to-br from-primary via-primary to-primary-light py-20">
-        <div className="container-page text-center">
+      <section className="relative overflow-hidden bg-black py-20">
+        <Image
+          src="https://res.cloudinary.com/zhamat-tecnologia/image/upload/v1781112690/diego/nosotros_rtjhnk.jpg"
+          alt=""
+          width={1600}
+          height={500}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="container-page relative text-center">
           <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
             Nosotros
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-blue-200">
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-300">
             Conoce más sobre Diego Publicidad y nuestro equipo.
           </p>
         </div>
@@ -83,7 +92,7 @@ export default function NosotrosPage() {
                 key={m.name}
                 className="rounded-xl border border-border bg-white p-6 text-center"
               >
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary text-xl font-bold text-white">
+                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gray-900 text-xl font-bold text-white">
                   {m.name.split(" ").map((n) => n[0]).join("")}
                 </div>
                 <h3 className="font-semibold text-text">{m.name}</h3>
@@ -106,7 +115,7 @@ export default function NosotrosPage() {
           <div className="mt-6">
             <Link
               href="/cotizar"
-              className="inline-flex items-center gap-2 rounded-lg bg-primary px-8 py-3 text-sm font-semibold text-white transition-all hover:bg-primary-light"
+              className="inline-flex items-center gap-2 rounded-lg bg-gray-900 px-8 py-3 text-sm font-semibold text-white transition-all hover:bg-gray-800"
             >
               Solicitar Cotización
               <span aria-hidden="true">&rarr;</span>
