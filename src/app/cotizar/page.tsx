@@ -122,6 +122,83 @@ const colorsOptions = [
   { id: "2_tintas", label: "2 Tintas" },
 ];
 
+const basePrices: Record<string, number> = {
+  volantes: 50,
+  tarjetas: 80,
+  brochures: 120,
+  banners: 150,
+  afiches: 60,
+  stickers: 70,
+  invitaciones: 90,
+};
+
+const paperPrices: Record<string, number> = {
+  "Bond 75g": 0,
+  "Bond 90g": 5,
+  "Bond 120g": 8,
+  "Couché Mate 130g": 10,
+  "Couché Brillante 130g": 12,
+  "Couché Mate 150g": 12,
+  "Couché Brillante 150g": 14,
+  "Couché Mate 200g": 15,
+  "Couché Mate 300g": 20,
+  "Couché Brillante 300g": 22,
+  "Opalina 250g": 18,
+  "Texturizado 250g": 22,
+  "Reciclado 250g": 15,
+  "Reciclado 300g": 18,
+  "Plástico PVC": 30,
+  "Lona Front": 20,
+  "Lona Backlit": 25,
+  "Vinilo Autoadhesivo": 18,
+  "Vinilo Blanco": 15,
+  "Vinilo Transparente": 18,
+  "Mesh Microperforado": 28,
+  "Papel Adhesivo Mate": 10,
+  "Papel Adhesivo Brillante": 12,
+  "Metalizado": 25,
+};
+
+const quantityMultipliers: Record<string, number> = {
+  "100": 1,
+  "250": 1.8,
+  "500": 3,
+  "1000": 5,
+  "2000": 9,
+  "5000": 20,
+};
+
+const colorMultipliers: Record<string, number> = {
+  byN: 1,
+  full_color: 1.2,
+  full_color_doble: 1.4,
+  "1_tinta": 1.05,
+  "2_tintas": 1.1,
+};
+
+const finishingPrices: Record<string, number> = {
+  ninguno: 0,
+  laminado_mate: 15,
+  laminado_brillante: 15,
+  plastificado: 20,
+  relieve: 25,
+  barniz_uv: 30,
+  corte_laser: 40,
+  doblez: 10,
+  perforado: 15,
+  empastado: 35,
+};
+
+const deliveryMultipliers: Record<string, number> = {
+  urgente: 1.3,
+  rapido: 1.15,
+  normal: 1,
+};
+
+function formatPrice(amount: number): string {
+  return `$${(amount * 1000).toLocaleString("es-CO")}`;
+}
+
 export default function CotizarPage() {
   const [step, setStep] = useState(1);
   const [productId, setProductId] = useState("");
@@ -180,6 +257,26 @@ export default function CotizarPage() {
         return true;
     }
   };
+
+  const calculateTotal = () => {
+    if (!productId || !size || !paper || !quantity || !colors) return 0;
+    const basePrice = basePrices[productId] || 0;
+    const paperPrice = paperPrices[paper] || 0;
+    const qty = parseInt(quantity) || 0;
+    const qtyMultiplier = quantityMultipliers[quantity] || (qty > 0 ? qty / 100 : 0);
+    const colorMultiplier = colorMultipliers[colors] || 1;
+    let total = (basePrice + paperPrice) * qtyMultiplier * colorMultiplier;
+    finishing.forEach((f) => {
+      if (f !== "ninguno") {
+        total += (finishingPrices[f] || 0) * (qtyMultiplier || 1);
+      }
+    });
+    total *= deliveryMultipliers[delivery] || 1;
+    if (size === "Personalizado") total *= 1.2;
+    return Math.round(total);
+  };
+
+  const totalPrice = calculateTotal();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -262,6 +359,15 @@ export default function CotizarPage() {
                 <span>Revisar</span>
               </div>
             </div>
+
+            {totalPrice > 0 && step < 4 && (
+              <div className="mb-6 rounded-xl border border-accent/30 bg-amber-50 p-4 text-center">
+                <p className="text-sm text-text-muted">Valor estimado:</p>
+                <p className="text-2xl font-bold text-accent">
+                  {formatPrice(totalPrice)}
+                </p>
+              </div>
+            )}
 
             <form onSubmit={handleSubmit}>
               {step === 1 && (
@@ -410,7 +516,7 @@ export default function CotizarPage() {
                         </label>
                         <input
                           type="number"
-                          value={customWidth}
+                          value={quantity === "Otro" ? "" : quantity}
                           onChange={(e) => setQuantity(e.target.value)}
                           placeholder="Ingresa la cantidad"
                           className="mt-1 block w-full rounded-lg border border-border px-4 py-2.5 text-sm outline-none focus:border-primary focus:ring-1 focus:ring-primary"
@@ -741,6 +847,18 @@ export default function CotizarPage() {
                         <p className="mt-1 text-text">{notes}</p>
                       </div>
                     )}
+                  </div>
+
+                  <div className="rounded-xl border-2 border-accent bg-amber-50 p-6 text-center">
+                    <p className="text-sm font-medium uppercase tracking-wide text-text-muted">
+                      Total Estimado
+                    </p>
+                    <p className="mt-2 text-4xl font-bold text-accent">
+                      {formatPrice(totalPrice)}
+                    </p>
+                    <p className="mt-1 text-xs text-text-muted">
+                      *Precio estimado sujeto a verificación
+                    </p>
                   </div>
 
                   <div className="flex justify-between">
