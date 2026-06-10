@@ -1,65 +1,215 @@
-import Image from "next/image";
+import Link from "next/link";
+
+const services = [
+  {
+    title: "Impresión Digital",
+    desc: "Impresión de alta calidad en tiradas cortas y medianas con tiempos de entrega rápidos.",
+    icon: "🖨️",
+  },
+  {
+    title: "Impresión Offset",
+    desc: "Producción masiva con calidad superior para grandes volúmenes de impresión.",
+    icon: "⚙️",
+  },
+  {
+    title: "Grandes Formatos",
+    desc: "Banners, lonas, vinilos y gigantografías para exterior e interior.",
+    icon: "📐",
+  },
+  {
+    title: "Diseño Gráfico",
+    desc: "Creamos piezas gráficas profesionales adaptadas a tu marca y necesidades.",
+    icon: "🎨",
+  },
+  {
+    title: "Acabados Especiales",
+    desc: "Laminado, plastificado, relieve, corte láser y más acabados de calidad.",
+    icon: "✨",
+  },
+  {
+    title: "Papelería Corporativa",
+    desc: "Tarjetas, sobres, folders, blocks y toda la línea corporativa de tu empresa.",
+    icon: "📑",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <>
+      <section className="relative overflow-hidden">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 h-full w-full object-cover"
+        >
+          <source
+            src="https://res.cloudinary.com/zhamat-tecnologia/video/upload/v1781059912/diego/diegopublicidad2_iaaxgt.mp4"
+            type="video/mp4"
+          />
+        </video>
+        <div className="absolute inset-0 bg-linear-to-br from-primary/80 via-primary/70 to-primary-light/80" />
+        <div className="container-page relative py-24 sm:py-32">
+          <div className="max-w-2xl">
+            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
+              Transformamos tus ideas en
+              <span className="text-accent"> impresiones </span>
+              de alta calidad
+            </h1>
+            <p className="mt-6 text-lg leading-relaxed text-blue-200">
+              Somos tu aliado en comunicación visual. Ofrecemos servicios
+              completos de litografía, impresión digital y diseño gráfico con
+              los más altos estándares de calidad.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <Link
+                href="/cotizar"
+                className="inline-flex items-center gap-2 rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-primary transition-all hover:bg-accent-light"
+              >
+                Solicitar Cotización
+                <span aria-hidden="true">&rarr;</span>
+              </Link>
+              <Link
+                href="/servicios"
+                className="inline-flex items-center gap-2 rounded-lg border border-white/30 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-white/10"
+              >
+                Ver Servicios
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-surface-secondary py-20">
+        <div className="container-page">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-text">
+              Nuestros Servicios
+            </h2>
+            <p className="mt-4 text-text-secondary">
+              Ofrecemos una amplia gama de servicios de impresión y diseño para
+              satisfacer todas tus necesidades.
+            </p>
+          </div>
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {services.map((service) => (
+              <div
+                key={service.title}
+                className="group rounded-xl border border-border bg-white p-6 transition-shadow hover:shadow-lg"
+              >
+                <span className="mb-4 block text-3xl">{service.icon}</span>
+                <h3 className="text-lg font-semibold text-text">
+                  {service.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-text-secondary">
+                  {service.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-10 text-center">
+            <Link
+              href="/servicios"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-primary-light"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+              Ver todos los servicios
+              <span aria-hidden="true">&rarr;</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20">
+        <div className="container-page">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-text">
+              ¿Por qué elegirnos?
+            </h2>
+            <p className="mt-4 text-text-secondary">
+              Más de 10 años de experiencia nos respaldan como líderes en el
+              sector.
+            </p>
+          </div>
+          <div className="mt-12 grid gap-8 sm:grid-cols-3">
+            {[
+              {
+                title: "Calidad Superior",
+                desc: "Utilizamos equipos de última generación y materiales premium para garantizar resultados impecables.",
+                icon: "⭐",
+              },
+              {
+                title: "Entrega Puntual",
+                desc: "Cumplimos con los plazos acordados para que tu proyecto no se detenga.",
+                icon: "⏱️",
+              },
+              {
+                title: "Asesoría Personalizada",
+                desc: "Te guiamos en cada paso para elegir los mejores materiales y acabados.",
+                icon: "🤝",
+              },
+            ].map((item) => (
+              <div key={item.title} className="text-center">
+                <span className="mb-4 inline-block text-4xl">{item.icon}</span>
+                <h3 className="text-lg font-semibold text-text">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-text-secondary">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-accent py-20">
+        <div className="container-page text-center">
+          <h2 className="text-3xl font-bold tracking-tight text-primary">
+            ¿Listo para tu próximo proyecto?
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-primary/80">
+            Solicita una cotización sin compromiso y descubre la calidad de
+            nuestro servicio.
           </p>
+          <div className="mt-8">
+            <Link
+              href="/cotizar"
+              className="inline-flex items-center gap-2 rounded-lg bg-primary px-8 py-3 text-sm font-semibold text-white transition-all hover:bg-primary-light"
+            >
+              Solicitar Cotización
+              <span aria-hidden="true">&rarr;</span>
+            </Link>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      <section className="bg-surface-secondary py-20">
+        <div className="container-page">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-text">
+              Contáctanos
+            </h2>
+            <p className="mt-4 text-text-secondary">
+              Estamos ubicados en Lima. Escríbenos o visítanos.
+            </p>
+          </div>
+          <div className="mt-10 grid gap-6 text-center sm:grid-cols-3">
+            {[
+              { label: "Email", value: "info@diegopublicidad.com" },
+              { label: "Teléfono", value: "+51 999 999 999" },
+              { label: "Dirección", value: "Av. Ejemplo 123, Lima" },
+            ].map((item) => (
+              <div key={item.label} className="rounded-xl border border-border bg-white p-6">
+                <p className="text-sm font-semibold uppercase tracking-wide text-text-muted">
+                  {item.label}
+                </p>
+                <p className="mt-2 text-text">{item.value}</p>
+              </div>
+            ))}
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+    </>
   );
 }
