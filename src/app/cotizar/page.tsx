@@ -276,6 +276,42 @@ export default function CotizarPage() {
     return Math.round(total);
   };
 
+  const getPriceBreakdown = () => {
+    if (!productId || !size || !paper || !quantity || !colors) return [];
+    const basePrice = basePrices[productId] || 0;
+    const paperPrice = paperPrices[paper] || 0;
+    const qty = parseInt(quantity) || 0;
+    const qtyMultiplier = quantityMultipliers[quantity] || (qty > 0 ? qty / 100 : 0);
+    const colorMultiplier = colorMultipliers[colors] || 1;
+    const items = [
+      { label: `Producto (${selectedProduct?.name})`, value: formatPrice(basePrice) },
+      { label: `Papel / Material (${paper})`, value: formatPrice(paperPrice) },
+      { label: "Cantidad", value: `${quantity} (${qtyMultiplier.toFixed(1)}x)` },
+      { label: "Color", value: colorsOptions.find((c) => c.id === colors)?.label || "" },
+    ];
+    finishing
+      .filter((f) => f !== "ninguno")
+      .forEach((f) => {
+        items.push({
+          label: `Acabado: ${finishingOptions.find((o) => o.id === f)?.label}`,
+          value: formatPrice(finishingPrices[f]),
+        });
+      });
+    items.push({
+      label: "Entrega",
+      value:
+        delivery === "urgente"
+          ? "24 horas (+30%)"
+          : delivery === "rapido"
+          ? "2-3 días (+15%)"
+          : "5-7 días",
+    });
+    if (size === "Personalizado") {
+      items.push({ label: "Tamaño personalizado", value: "Recargo 20%" });
+    }
+    return items;
+  };
+
   const totalPrice = calculateTotal();
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -360,7 +396,7 @@ export default function CotizarPage() {
               </div>
             </div>
 
-            {totalPrice > 0 && step < 4 && (
+            {totalPrice > 0 && (
               <div className="mb-6 rounded-xl border border-accent/30 bg-amber-50 p-4 text-center">
                 <p className="text-sm text-text-muted">Valor estimado:</p>
                 <p className="text-2xl font-bold text-accent">
@@ -393,6 +429,9 @@ export default function CotizarPage() {
                           }`}
                         >
                           <p className="font-medium text-text">{p.name}</p>
+                          <p className="mt-1 text-sm font-semibold text-accent">
+                            {formatPrice(basePrices[p.id])}
+                          </p>
                         </button>
                       ))}
                     </div>
@@ -466,6 +505,9 @@ export default function CotizarPage() {
                             }`}
                           >
                             <p className="font-medium text-text">{p}</p>
+                            <p className="mt-1 text-sm font-semibold text-accent">
+                              {formatPrice(paperPrices[p])}
+                            </p>
                           </button>
                         ))}
                       </div>
@@ -542,6 +584,9 @@ export default function CotizarPage() {
                           }`}
                         >
                           <p className="font-medium text-text">{c.label}</p>
+                          <p className="mt-1 text-sm font-semibold text-accent">
+                            {c.id === "byN" ? "Sin recargo" : `+${Math.round((colorMultipliers[c.id] - 1) * 100)}%`}
+                          </p>
                         </button>
                       ))}
                     </div>
@@ -580,6 +625,9 @@ export default function CotizarPage() {
                             </div>
                             <p className="font-medium text-text">{f.label}</p>
                           </div>
+                          <p className="mt-1 text-sm font-semibold text-accent">
+                            {f.id === "ninguno" ? "$0" : formatPrice(finishingPrices[f.id])}
+                          </p>
                         </button>
                       ))}
                     </div>
@@ -607,6 +655,9 @@ export default function CotizarPage() {
                         >
                           <p className="font-medium text-text">{d.label}</p>
                           <p className="mt-1 text-xs text-text-muted">{d.desc}</p>
+                          <p className="mt-1 text-sm font-semibold text-accent">
+                            {d.id === "normal" ? "Sin recargo" : `+${Math.round((deliveryMultipliers[d.id] - 1) * 100)}%`}
+                          </p>
                         </button>
                       ))}
                     </div>
@@ -847,6 +898,23 @@ export default function CotizarPage() {
                         <p className="mt-1 text-text">{notes}</p>
                       </div>
                     )}
+                  </div>
+
+                  <div className="rounded-xl border border-border bg-surface-secondary p-6">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-text-muted">
+                      Desglose de Precios
+                    </p>
+                    <div className="mt-3 divide-y divide-border">
+                      {getPriceBreakdown().map((item, i) => (
+                        <div
+                          key={i}
+                          className="flex items-center justify-between py-2 text-sm"
+                        >
+                          <span className="text-text-secondary">{item.label}</span>
+                          <span className="font-medium text-text">{item.value}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
 
                   <div className="rounded-xl border-2 border-accent bg-amber-50 p-6 text-center">
