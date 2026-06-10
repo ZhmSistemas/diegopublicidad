@@ -15,12 +15,12 @@ const products: ProductType[] = [
     id: "volantes",
     name: "Volantes / Flyers",
     sizes: [
-      { label: "A5 (148 x 210 mm)", width: 148, height: 210, price: 500 },
-      { label: "A6 (105 x 148 mm)", width: 105, height: 148, price: 350 },
-      { label: "1/3 Carta (92 x 210 mm)", width: 92, height: 210, price: 400 },
-      { label: "Personalizado", width: 0, height: 0, price: 600 },
+      { label: "A5 (148 x 210 mm)", width: 148, height: 210, price: 50 },
+      { label: "A6 (105 x 148 mm)", width: 105, height: 148, price: 35 },
+      { label: "1/3 Carta (92 x 210 mm)", width: 92, height: 210, price: 40 },
+      { label: "Personalizado", width: 0, height: 0, price: 60 },
     ],
-    papers: ["Bond 75g", "Bond 90g", "Couché Mate 130g", "Couché Brillante 130g", "Couché Mate 200g"],
+    papers: ["Reciclado 250g", "Bond 75g", "Bond 90g", "Couché Mate 130g", "Couché Brillante 130g", "Couché Mate 200g"],
   },
   {
     id: "tarjetas",
@@ -36,21 +36,21 @@ const products: ProductType[] = [
     id: "brochures",
     name: "Brochures / Folletos",
     sizes: [
-      { label: "A4 (210 x 297 mm)", width: 210, height: 297, price: 1500 },
-      { label: "A5 (148 x 210 mm)", width: 148, height: 210, price: 1200 },
-      { label: "Carta (216 x 279 mm)", width: 216, height: 279, price: 1400 },
-      { label: "Personalizado", width: 0, height: 0, price: 1800 },
+      { label: "A4 (210 x 297 mm)", width: 210, height: 297, price: 150 },
+      { label: "A5 (148 x 210 mm)", width: 148, height: 210, price: 120 },
+      { label: "Carta (216 x 279 mm)", width: 216, height: 279, price: 140 },
+      { label: "Personalizado", width: 0, height: 0, price: 180 },
     ],
-    papers: ["Couché Mate 130g", "Couché Brillante 130g", "Couché Mate 200g", "Bond 90g"],
+    papers: ["Reciclado 250g", "Couché Mate 130g", "Couché Brillante 130g", "Couché Mate 200g", "Bond 90g"],
   },
   {
     id: "banners",
     name: "Banners / Pendones",
     sizes: [
-      { label: "60 x 160 cm", width: 600, height: 1600, price: 1500 },
-      { label: "80 x 200 cm", width: 800, height: 2000, price: 2000 },
-      { label: "100 x 200 cm", width: 1000, height: 2000, price: 2500 },
-      { label: "Personalizado", width: 0, height: 0, price: 3000 },
+      { label: "60 x 160 cm", width: 600, height: 1600, price: 150 },
+      { label: "80 x 200 cm", width: 800, height: 2000, price: 200 },
+      { label: "100 x 200 cm", width: 1000, height: 2000, price: 250 },
+      { label: "Personalizado", width: 0, height: 0, price: 300 },
     ],
     papers: ["Lona Front", "Lona Backlit", "Vinilo Autoadhesivo", "Mesh Microperforado"],
   },
@@ -58,21 +58,21 @@ const products: ProductType[] = [
     id: "afiches",
     name: "Afiches / Posters",
     sizes: [
-      { label: "A3 (297 x 420 mm)", width: 297, height: 420, price: 600 },
-      { label: "A2 (420 x 594 mm)", width: 420, height: 594, price: 800 },
-      { label: "50 x 70 cm", width: 500, height: 700, price: 700 },
-      { label: "Personalizado", width: 0, height: 0, price: 900 },
+      { label: "A3 (297 x 420 mm)", width: 297, height: 420, price: 60 },
+      { label: "A2 (420 x 594 mm)", width: 420, height: 594, price: 80 },
+      { label: "50 x 70 cm", width: 500, height: 700, price: 70 },
+      { label: "Personalizado", width: 0, height: 0, price: 90 },
     ],
-    papers: ["Couché Mate 150g", "Couché Brillante 150g", "Bond 120g"],
+    papers: ["Reciclado 250g", "Couché Mate 150g", "Couché Brillante 150g", "Bond 120g"],
   },
   {
     id: "stickers",
     name: "Stickers / Calcomanías",
     sizes: [
-      { label: "A4 (210 x 297 mm)", width: 210, height: 297, price: 700 },
-      { label: "A5 (148 x 210 mm)", width: 148, height: 210, price: 500 },
-      { label: "10 x 10 cm", width: 100, height: 100, price: 300 },
-      { label: "Personalizado", width: 0, height: 0, price: 800 },
+      { label: "A4 (210 x 297 mm)", width: 210, height: 297, price: 70 },
+      { label: "A5 (148 x 210 mm)", width: 148, height: 210, price: 50 },
+      { label: "10 x 10 cm", width: 100, height: 100, price: 30 },
+      { label: "Personalizado", width: 0, height: 0, price: 80 },
     ],
     papers: ["Vinilo Blanco", "Vinilo Transparente", "Papel Adhesivo Mate", "Papel Adhesivo Brillante"],
   },
@@ -80,10 +80,10 @@ const products: ProductType[] = [
     id: "invitaciones",
     name: "Invitaciones",
     sizes: [
-      { label: "A5 (148 x 210 mm)", width: 148, height: 210, price: 900 },
-      { label: "A6 (105 x 148 mm)", width: 105, height: 148, price: 700 },
-      { label: "DL (99 x 210 mm)", width: 99, height: 210, price: 800 },
-      { label: "Personalizado", width: 0, height: 0, price: 1100 },
+      { label: "A5 (148 x 210 mm)", width: 148, height: 210, price: 90 },
+      { label: "A6 (105 x 148 mm)", width: 105, height: 148, price: 70 },
+      { label: "DL (99 x 210 mm)", width: 99, height: 210, price: 80 },
+      { label: "Personalizado", width: 0, height: 0, price: 110 },
     ],
     papers: ["Opalina 250g", "Texturizado 250g", "Reciclado 250g", "Metalizado"],
   },
@@ -123,63 +123,52 @@ const colorsOptions = [
   { id: "2_tintas", label: "2 Tintas" },
 ];
 
-// Precios por unidad en COP
-const sizeUnitPrices: Record<string, number> = {
-  volantes: 60,
-  tarjetas: 80,
-  brochures: 120,
-  banners: 150,
-  afiches: 40,
-  stickers: 30,
-  invitaciones: 70,
-};
-
 const paperUnitPrices: Record<string, number> = {
   "Bond 75g": 0,
-  "Bond 90g": 50,
-  "Bond 120g": 80,
-  "Couché Mate 130g": 100,
-  "Couché Brillante 130g": 120,
-  "Couché Mate 150g": 120,
-  "Couché Brillante 150g": 140,
-  "Couché Mate 200g": 150,
-  "Couché Mate 300g": 200,
-  "Couché Brillante 300g": 220,
-  "Opalina 250g": 180,
-  "Texturizado 250g": 220,
+  "Bond 90g": 5,
+  "Bond 120g": 8,
+  "Couché Mate 130g": 10,
+  "Couché Brillante 130g": 12,
+  "Couché Mate 150g": 12,
+  "Couché Brillante 150g": 14,
+  "Couché Mate 200g": 15,
+  "Couché Mate 300g": 20,
+  "Couché Brillante 300g": 22,
+  "Opalina 250g": 18,
+  "Texturizado 250g": 22,
   "Reciclado 250g": 0,
   "Reciclado 300g": 0,
-  "Plástico PVC": 300,
-  "Lona Front": 200,
-  "Lona Backlit": 250,
-  "Vinilo Autoadhesivo": 180,
-  "Vinilo Blanco": 150,
-  "Vinilo Transparente": 180,
-  "Mesh Microperforado": 280,
-  "Papel Adhesivo Mate": 100,
-  "Papel Adhesivo Brillante": 120,
-  "Metalizado": 250,
+  "Plástico PVC": 30,
+  "Lona Front": 20,
+  "Lona Backlit": 25,
+  "Vinilo Autoadhesivo": 18,
+  "Vinilo Blanco": 15,
+  "Vinilo Transparente": 18,
+  "Mesh Microperforado": 28,
+  "Papel Adhesivo Mate": 10,
+  "Papel Adhesivo Brillante": 12,
+  "Metalizado": 25,
 };
 
 const colorUnitPrices: Record<string, number> = {
   byN: 0,
-  full_color: 100,
-  full_color_doble: 200,
-  "1_tinta": 25,
-  "2_tintas": 50,
+  full_color: 10,
+  full_color_doble: 20,
+  "1_tinta": 2.5,
+  "2_tintas": 5,
 };
 
 const finishingUnitPrices: Record<string, number> = {
   ninguno: 0,
-  laminado_mate: 150,
-  laminado_brillante: 150,
-  plastificado: 200,
-  relieve: 250,
-  barniz_uv: 300,
-  corte_laser: 400,
-  doblez: 100,
-  perforado: 150,
-  empastado: 350,
+  laminado_mate: 15,
+  laminado_brillante: 15,
+  plastificado: 20,
+  relieve: 25,
+  barniz_uv: 30,
+  corte_laser: 40,
+  doblez: 10,
+  perforado: 15,
+  empastado: 35,
 };
 
 const deliverySurcharges: Record<string, number> = {
@@ -200,7 +189,7 @@ export default function CotizarPage() {
   const [customHeight, setCustomHeight] = useState("");
   const [paper, setPaper] = useState("");
   const [quantity, setQuantity] = useState("");
-  const [colors, setColors] = useState("full_color");
+  const [colors, setColors] = useState("byN");
   const [finishing, setFinishing] = useState<string[]>(["ninguno"]);
   const [delivery, setDelivery] = useState("normal");
   const [files, setFiles] = useState<FileList | null>(null);
@@ -428,7 +417,7 @@ export default function CotizarPage() {
                           onClick={() => {
                             setProductId(p.id);
                             setSize("");
-                            setPaper("");
+                            setPaper(p.papers.find((pp) => pp.includes("Reciclado")) || "");
                           }}
                           className={`rounded-xl border-2 p-4 text-left transition-all ${
                             productId === p.id
@@ -957,7 +946,7 @@ export default function CotizarPage() {
                       type="submit"
                       className="rounded-lg bg-accent px-8 py-3 text-sm font-semibold text-primary transition-colors hover:bg-accent-light"
                     >
-                      Enviar Cotización
+                      Pedir Cotización
                     </button>
                   </div>
                 </div>
