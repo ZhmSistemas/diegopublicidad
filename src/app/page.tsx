@@ -191,14 +191,14 @@ export default function Home() {
               Contáctanos
             </h2>
             <p className="mt-4 text-text-secondary">
-              Estamos ubicados en Lima. Escríbenos o visítanos.
+              Estamos ubicados en Bogotá. Escríbenos o visítanos.
             </p>
           </div>
           <div className="mt-10 grid gap-6 text-center sm:grid-cols-3">
             {[
               { label: "Email", value: "info@diegopublicidad.com" },
-              { label: "Teléfono", value: "+51 999 999 999" },
-              { label: "Dirección", value: "Av. Ejemplo 123, Lima" },
+              { label: "Teléfono", value: "+57 304 6372758" },
+              { label: "Dirección", value: "Calle 9 No 27 - 45-Bogotá" },
             ].map((item) => (
               <div key={item.label} className="rounded-xl border border-border bg-white p-6">
                 <p className="text-sm font-semibold uppercase tracking-wide text-text-muted">

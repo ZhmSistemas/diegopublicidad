@@ -64,8 +64,8 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2 text-sm text-blue-200">
               <li>info@diegopublicidad.com</li>
-              <li>+51 999 999 999</li>
-              <li>Av. Ejemplo 123, Lima</li>
+              <li>+57 304 6372758</li>
+              <li>Calle 9 No 27 - 45-Bogotá</li>
             </ul>
           </div>
         </div>

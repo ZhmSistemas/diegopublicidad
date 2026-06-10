@@ -1,8 +1,8 @@
 import Link from "next/link";
 
 const contactInfo = [
-  { label: "Dirección", value: "Av. Ejemplo 123, San Isidro, Lima" },
-  { label: "Teléfono", value: "+51 999 999 999" },
+  { label: "Dirección", value: "Calle 9 No 27 - 45-Bogotá" },
+  { label: "Teléfono", value: "+57 304 6372758" },
   { label: "Email", value: "info@diegopublicidad.com" },
   { label: "Horario", value: "Lun - Vie: 9:00 AM - 6:00 PM" },
 ];
