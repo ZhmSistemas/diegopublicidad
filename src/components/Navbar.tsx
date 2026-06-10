@@ -15,11 +15,11 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-black">
       <div className="container-page flex h-16 items-center justify-between">
         <Link
           href="/"
-          className="flex items-center gap-2 text-xl font-bold tracking-tight text-primary"
+          className="flex items-center gap-2 text-xl font-bold tracking-tight text-white"
         >
           <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent text-sm font-bold text-white">
             DP
@@ -32,14 +32,14 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-text-secondary transition-colors hover:text-primary"
+              className="text-sm font-medium text-white/70 transition-colors hover:text-white"
             >
               {link.label}
             </Link>
           ))}
           <Link
             href="/cotizar"
-            className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-primary-light"
+            className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-black transition-colors hover:bg-accent-light"
           >
             Solicitar Cotización
           </Link>
@@ -50,27 +50,27 @@ export default function Navbar() {
           className="flex flex-col gap-1.5 p-2 md:hidden"
           aria-label="Menú"
         >
-          <span
-            className={`block h-0.5 w-6 bg-text transition-all ${open ? "translate-y-2 rotate-45" : ""}`}
-          />
-          <span
-            className={`block h-0.5 w-6 bg-text transition-all ${open ? "opacity-0" : ""}`}
-          />
-          <span
-            className={`block h-0.5 w-6 bg-text transition-all ${open ? "-translate-y-2 -rotate-45" : ""}`}
-          />
+            <span
+              className={`block h-0.5 w-6 bg-white transition-all ${open ? "translate-y-2 rotate-45" : ""}`}
+            />
+            <span
+              className={`block h-0.5 w-6 bg-white transition-all ${open ? "opacity-0" : ""}`}
+            />
+            <span
+              className={`block h-0.5 w-6 bg-white transition-all ${open ? "-translate-y-2 -rotate-45" : ""}`}
+            />
         </button>
       </div>
 
       {open && (
-        <div className="border-t border-border md:hidden">
+        <div className="border-t border-white/10 md:hidden">
           <nav className="container-page flex flex-col gap-2 py-4">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="rounded-lg px-3 py-2 text-sm font-medium text-text-secondary transition-colors hover:bg-surface-secondary hover:text-primary"
+                className="rounded-lg px-3 py-2 text-sm font-medium text-white/70 transition-colors hover:bg-white/10 hover:text-white"
               >
                 {link.label}
               </Link>

@@ -49,7 +49,7 @@ export default function Home() {
             type="video/mp4"
           />
         </video>
-        <div className="absolute inset-0 bg-linear-to-br from-primary/80 via-primary/70 to-primary-light/80" />
+        <div className="absolute inset-0 bg-black/60" />
         <div className="container-page relative py-24 sm:py-32">
           <div className="max-w-2xl">
             <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
