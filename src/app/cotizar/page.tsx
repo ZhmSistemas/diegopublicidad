@@ -5,7 +5,7 @@ import { useState } from "react";
 type ProductType = {
   id: string;
   name: string;
-  sizes: { label: string; width: number; height: number }[];
+  sizes: { label: string; width: number; height: number; price: number }[];
   papers: string[];
 };
 
@@ -14,10 +14,10 @@ const products: ProductType[] = [
     id: "volantes",
     name: "Volantes / Flyers",
     sizes: [
-      { label: "A5 (148 x 210 mm)", width: 148, height: 210 },
-      { label: "A6 (105 x 148 mm)", width: 105, height: 148 },
-      { label: "1/3 Carta (92 x 210 mm)", width: 92, height: 210 },
-      { label: "Personalizado", width: 0, height: 0 },
+      { label: "A5 (148 x 210 mm)", width: 148, height: 210, price: 500 },
+      { label: "A6 (105 x 148 mm)", width: 105, height: 148, price: 350 },
+      { label: "1/3 Carta (92 x 210 mm)", width: 92, height: 210, price: 400 },
+      { label: "Personalizado", width: 0, height: 0, price: 600 },
     ],
     papers: ["Bond 75g", "Bond 90g", "Couché Mate 130g", "Couché Brillante 130g", "Couché Mate 200g"],
   },
@@ -25,9 +25,9 @@ const products: ProductType[] = [
     id: "tarjetas",
     name: "Tarjetas de Presentación",
     sizes: [
-      { label: "Estándar (90 x 50 mm)", width: 90, height: 50 },
-      { label: "Cuadrada (55 x 55 mm)", width: 55, height: 55 },
-      { label: "Personalizado", width: 0, height: 0 },
+      { label: "Estándar (90 x 50 mm)", width: 90, height: 50, price: 80 },
+      { label: "Cuadrada (55 x 55 mm)", width: 55, height: 55, price: 70 },
+      { label: "Personalizado", width: 0, height: 0, price: 100 },
     ],
     papers: ["Couché Mate 300g", "Couché Brillante 300g", "Opalina 250g", "Plástico PVC", "Reciclado 300g"],
   },
@@ -35,10 +35,10 @@ const products: ProductType[] = [
     id: "brochures",
     name: "Brochures / Folletos",
     sizes: [
-      { label: "A4 (210 x 297 mm)", width: 210, height: 297 },
-      { label: "A5 (148 x 210 mm)", width: 148, height: 210 },
-      { label: "Carta (216 x 279 mm)", width: 216, height: 279 },
-      { label: "Personalizado", width: 0, height: 0 },
+      { label: "A4 (210 x 297 mm)", width: 210, height: 297, price: 1500 },
+      { label: "A5 (148 x 210 mm)", width: 148, height: 210, price: 1200 },
+      { label: "Carta (216 x 279 mm)", width: 216, height: 279, price: 1400 },
+      { label: "Personalizado", width: 0, height: 0, price: 1800 },
     ],
     papers: ["Couché Mate 130g", "Couché Brillante 130g", "Couché Mate 200g", "Bond 90g"],
   },
@@ -46,10 +46,10 @@ const products: ProductType[] = [
     id: "banners",
     name: "Banners / Pendones",
     sizes: [
-      { label: "60 x 160 cm", width: 600, height: 1600 },
-      { label: "80 x 200 cm", width: 800, height: 2000 },
-      { label: "100 x 200 cm", width: 1000, height: 2000 },
-      { label: "Personalizado", width: 0, height: 0 },
+      { label: "60 x 160 cm", width: 600, height: 1600, price: 1500 },
+      { label: "80 x 200 cm", width: 800, height: 2000, price: 2000 },
+      { label: "100 x 200 cm", width: 1000, height: 2000, price: 2500 },
+      { label: "Personalizado", width: 0, height: 0, price: 3000 },
     ],
     papers: ["Lona Front", "Lona Backlit", "Vinilo Autoadhesivo", "Mesh Microperforado"],
   },
@@ -57,10 +57,10 @@ const products: ProductType[] = [
     id: "afiches",
     name: "Afiches / Posters",
     sizes: [
-      { label: "A3 (297 x 420 mm)", width: 297, height: 420 },
-      { label: "A2 (420 x 594 mm)", width: 420, height: 594 },
-      { label: "50 x 70 cm", width: 500, height: 700 },
-      { label: "Personalizado", width: 0, height: 0 },
+      { label: "A3 (297 x 420 mm)", width: 297, height: 420, price: 600 },
+      { label: "A2 (420 x 594 mm)", width: 420, height: 594, price: 800 },
+      { label: "50 x 70 cm", width: 500, height: 700, price: 700 },
+      { label: "Personalizado", width: 0, height: 0, price: 900 },
     ],
     papers: ["Couché Mate 150g", "Couché Brillante 150g", "Bond 120g"],
   },
@@ -68,10 +68,10 @@ const products: ProductType[] = [
     id: "stickers",
     name: "Stickers / Calcomanías",
     sizes: [
-      { label: "A4 (210 x 297 mm)", width: 210, height: 297 },
-      { label: "A5 (148 x 210 mm)", width: 148, height: 210 },
-      { label: "10 x 10 cm", width: 100, height: 100 },
-      { label: "Personalizado", width: 0, height: 0 },
+      { label: "A4 (210 x 297 mm)", width: 210, height: 297, price: 700 },
+      { label: "A5 (148 x 210 mm)", width: 148, height: 210, price: 500 },
+      { label: "10 x 10 cm", width: 100, height: 100, price: 300 },
+      { label: "Personalizado", width: 0, height: 0, price: 800 },
     ],
     papers: ["Vinilo Blanco", "Vinilo Transparente", "Papel Adhesivo Mate", "Papel Adhesivo Brillante"],
   },
@@ -79,10 +79,10 @@ const products: ProductType[] = [
     id: "invitaciones",
     name: "Invitaciones",
     sizes: [
-      { label: "A5 (148 x 210 mm)", width: 148, height: 210 },
-      { label: "A6 (105 x 148 mm)", width: 105, height: 148 },
-      { label: "DL (99 x 210 mm)", width: 99, height: 210 },
-      { label: "Personalizado", width: 0, height: 0 },
+      { label: "A5 (148 x 210 mm)", width: 148, height: 210, price: 900 },
+      { label: "A6 (105 x 148 mm)", width: 105, height: 148, price: 700 },
+      { label: "DL (99 x 210 mm)", width: 99, height: 210, price: 800 },
+      { label: "Personalizado", width: 0, height: 0, price: 1100 },
     ],
     papers: ["Opalina 250g", "Texturizado 250g", "Reciclado 250g", "Metalizado"],
   },
@@ -122,81 +122,73 @@ const colorsOptions = [
   { id: "2_tintas", label: "2 Tintas" },
 ];
 
-const basePrices: Record<string, number> = {
-  volantes: 50,
+// Precios por unidad en COP
+const sizeUnitPrices: Record<string, number> = {
+  volantes: 60,
   tarjetas: 80,
   brochures: 120,
   banners: 150,
-  afiches: 60,
-  stickers: 70,
-  invitaciones: 90,
+  afiches: 40,
+  stickers: 30,
+  invitaciones: 70,
 };
 
-const paperPrices: Record<string, number> = {
+const paperUnitPrices: Record<string, number> = {
   "Bond 75g": 0,
-  "Bond 90g": 5,
-  "Bond 120g": 8,
-  "Couché Mate 130g": 10,
-  "Couché Brillante 130g": 12,
-  "Couché Mate 150g": 12,
-  "Couché Brillante 150g": 14,
-  "Couché Mate 200g": 15,
-  "Couché Mate 300g": 20,
-  "Couché Brillante 300g": 22,
-  "Opalina 250g": 18,
-  "Texturizado 250g": 22,
-  "Reciclado 250g": 15,
-  "Reciclado 300g": 18,
-  "Plástico PVC": 30,
-  "Lona Front": 20,
-  "Lona Backlit": 25,
-  "Vinilo Autoadhesivo": 18,
-  "Vinilo Blanco": 15,
-  "Vinilo Transparente": 18,
-  "Mesh Microperforado": 28,
-  "Papel Adhesivo Mate": 10,
-  "Papel Adhesivo Brillante": 12,
-  "Metalizado": 25,
+  "Bond 90g": 50,
+  "Bond 120g": 80,
+  "Couché Mate 130g": 100,
+  "Couché Brillante 130g": 120,
+  "Couché Mate 150g": 120,
+  "Couché Brillante 150g": 140,
+  "Couché Mate 200g": 150,
+  "Couché Mate 300g": 200,
+  "Couché Brillante 300g": 220,
+  "Opalina 250g": 180,
+  "Texturizado 250g": 220,
+  "Reciclado 250g": 150,
+  "Reciclado 300g": 180,
+  "Plástico PVC": 300,
+  "Lona Front": 200,
+  "Lona Backlit": 250,
+  "Vinilo Autoadhesivo": 180,
+  "Vinilo Blanco": 150,
+  "Vinilo Transparente": 180,
+  "Mesh Microperforado": 280,
+  "Papel Adhesivo Mate": 100,
+  "Papel Adhesivo Brillante": 120,
+  "Metalizado": 250,
 };
 
-const quantityMultipliers: Record<string, number> = {
-  "100": 1,
-  "250": 1.8,
-  "500": 3,
-  "1000": 5,
-  "2000": 9,
-  "5000": 20,
+const colorUnitPrices: Record<string, number> = {
+  byN: 0,
+  full_color: 100,
+  full_color_doble: 200,
+  "1_tinta": 25,
+  "2_tintas": 50,
 };
 
-const colorMultipliers: Record<string, number> = {
-  byN: 1,
-  full_color: 1.2,
-  full_color_doble: 1.4,
-  "1_tinta": 1.05,
-  "2_tintas": 1.1,
-};
-
-const finishingPrices: Record<string, number> = {
+const finishingUnitPrices: Record<string, number> = {
   ninguno: 0,
-  laminado_mate: 15,
-  laminado_brillante: 15,
-  plastificado: 20,
-  relieve: 25,
-  barniz_uv: 30,
-  corte_laser: 40,
-  doblez: 10,
-  perforado: 15,
-  empastado: 35,
+  laminado_mate: 150,
+  laminado_brillante: 150,
+  plastificado: 200,
+  relieve: 250,
+  barniz_uv: 300,
+  corte_laser: 400,
+  doblez: 100,
+  perforado: 150,
+  empastado: 350,
 };
 
-const deliveryMultipliers: Record<string, number> = {
+const deliverySurcharges: Record<string, number> = {
   urgente: 1.3,
   rapido: 1.15,
   normal: 1,
 };
 
 function formatPrice(amount: number): string {
-  return `$${(amount * 1000).toLocaleString("es-CO")}`;
+  return `$${Math.round(amount).toLocaleString("es-CO")}`;
 }
 
 export default function CotizarPage() {
@@ -258,45 +250,43 @@ export default function CotizarPage() {
     }
   };
 
+  const selectedSize = selectedProduct?.sizes.find((s) => s.label === size);
+
   const calculateTotal = () => {
     if (!productId || !size || !paper || !quantity || !colors) return 0;
-    const basePrice = basePrices[productId] || 0;
-    const paperPrice = paperPrices[paper] || 0;
     const qty = parseInt(quantity) || 0;
-    const qtyMultiplier = quantityMultipliers[quantity] || (qty > 0 ? qty / 100 : 0);
-    const colorMultiplier = colorMultipliers[colors] || 1;
-    let total = (basePrice + paperPrice) * qtyMultiplier * colorMultiplier;
-    finishing.forEach((f) => {
-      if (f !== "ninguno") {
-        total += (finishingPrices[f] || 0) * (qtyMultiplier || 1);
-      }
-    });
-    total *= deliveryMultipliers[delivery] || 1;
+    const sizePrice = selectedSize?.price || 0;
+    const paperPrice = paperUnitPrices[paper] || 0;
+    const colorPrice = colorUnitPrices[colors] || 0;
+    const finishingPrice = finishing
+      .filter((f) => f !== "ninguno")
+      .reduce((sum, f) => sum + (finishingUnitPrices[f] || 0), 0);
+    let total = (sizePrice + paperPrice + colorPrice + finishingPrice) * qty;
+    total *= deliverySurcharges[delivery] || 1;
     if (size === "Personalizado") total *= 1.2;
     return Math.round(total);
   };
 
   const getPriceBreakdown = () => {
     if (!productId || !size || !paper || !quantity || !colors) return [];
-    const basePrice = basePrices[productId] || 0;
-    const paperPrice = paperPrices[paper] || 0;
     const qty = parseInt(quantity) || 0;
-    const qtyMultiplier = quantityMultipliers[quantity] || (qty > 0 ? qty / 100 : 0);
-    const colorMultiplier = colorMultipliers[colors] || 1;
-    const items = [
-      { label: `Producto (${selectedProduct?.name})`, value: formatPrice(basePrice) },
-      { label: `Papel / Material (${paper})`, value: formatPrice(paperPrice) },
-      { label: "Cantidad", value: `${quantity} (${qtyMultiplier.toFixed(1)}x)` },
-      { label: "Color", value: colorsOptions.find((c) => c.id === colors)?.label || "" },
-    ];
-    finishing
+    const sizePrice = selectedSize?.price || 0;
+    const paperPrice = paperUnitPrices[paper] || 0;
+    const colorPrice = colorUnitPrices[colors] || 0;
+    const finishingItems: { label: string; value: string; total: string }[] = finishing
       .filter((f) => f !== "ninguno")
-      .forEach((f) => {
-        items.push({
-          label: `Acabado: ${finishingOptions.find((o) => o.id === f)?.label}`,
-          value: formatPrice(finishingPrices[f]),
-        });
-      });
+      .map((f) => ({
+        label: `Acabado: ${finishingOptions.find((o) => o.id === f)?.label}`,
+        value: `${formatPrice(finishingUnitPrices[f])}/und × ${qty}`,
+        total: formatPrice(finishingUnitPrices[f] * qty),
+      }));
+    const items: { label: string; value: string; total: string }[] = [
+      { label: `Tamaño (${selectedProduct?.name})`, value: `${formatPrice(sizePrice)}/und × ${qty}`, total: formatPrice(sizePrice * qty) },
+      { label: `Papel (${paper})`, value: `${formatPrice(paperPrice)}/und × ${qty}`, total: formatPrice(paperPrice * qty) },
+      { label: "Color", value: `${formatPrice(colorPrice)}/und × ${qty}`, total: formatPrice(colorPrice * qty) },
+      ...finishingItems,
+    ];
+    const delSurcharge = deliverySurcharges[delivery] || 1;
     items.push({
       label: "Entrega",
       value:
@@ -305,9 +295,10 @@ export default function CotizarPage() {
           : delivery === "rapido"
           ? "2-3 días (+15%)"
           : "5-7 días",
+      total: delSurcharge !== 1 ? `${Math.round((delSurcharge - 1) * 100)}%` : "Sin recargo",
     });
     if (size === "Personalizado") {
-      items.push({ label: "Tamaño personalizado", value: "Recargo 20%" });
+      items.push({ label: "Tamaño personalizado", value: "Recargo 20%", total: "" });
     }
     return items;
   };
@@ -398,7 +389,7 @@ export default function CotizarPage() {
 
             {totalPrice > 0 && (
               <div className="mb-6 rounded-xl border border-accent/30 bg-amber-50 p-4 text-center">
-                <p className="text-sm text-text-muted">Valor estimado:</p>
+                <p className="text-sm text-text-muted">Valor total estimado:</p>
                 <p className="text-2xl font-bold text-accent">
                   {formatPrice(totalPrice)}
                 </p>
@@ -429,9 +420,6 @@ export default function CotizarPage() {
                           }`}
                         >
                           <p className="font-medium text-text">{p.name}</p>
-                          <p className="mt-1 text-sm font-semibold text-accent">
-                            {formatPrice(basePrices[p.id])}
-                          </p>
                         </button>
                       ))}
                     </div>
@@ -455,6 +443,9 @@ export default function CotizarPage() {
                             }`}
                           >
                             <p className="font-medium text-text">{s.label}</p>
+                            <p className="mt-1 text-sm font-semibold text-accent">
+                              {formatPrice(s.price)}/und
+                            </p>
                           </button>
                         ))}
                       </div>
@@ -506,7 +497,7 @@ export default function CotizarPage() {
                           >
                             <p className="font-medium text-text">{p}</p>
                             <p className="mt-1 text-sm font-semibold text-accent">
-                              {formatPrice(paperPrices[p])}
+                              {formatPrice(paperUnitPrices[p])}/und
                             </p>
                           </button>
                         ))}
@@ -585,7 +576,7 @@ export default function CotizarPage() {
                         >
                           <p className="font-medium text-text">{c.label}</p>
                           <p className="mt-1 text-sm font-semibold text-accent">
-                            {c.id === "byN" ? "Sin recargo" : `+${Math.round((colorMultipliers[c.id] - 1) * 100)}%`}
+                            {formatPrice(colorUnitPrices[c.id])}/und
                           </p>
                         </button>
                       ))}
@@ -626,7 +617,7 @@ export default function CotizarPage() {
                             <p className="font-medium text-text">{f.label}</p>
                           </div>
                           <p className="mt-1 text-sm font-semibold text-accent">
-                            {f.id === "ninguno" ? "$0" : formatPrice(finishingPrices[f.id])}
+                            {f.id === "ninguno" ? "$0" : `${formatPrice(finishingUnitPrices[f.id])}/und`}
                           </p>
                         </button>
                       ))}
@@ -656,7 +647,7 @@ export default function CotizarPage() {
                           <p className="font-medium text-text">{d.label}</p>
                           <p className="mt-1 text-xs text-text-muted">{d.desc}</p>
                           <p className="mt-1 text-sm font-semibold text-accent">
-                            {d.id === "normal" ? "Sin recargo" : `+${Math.round((deliveryMultipliers[d.id] - 1) * 100)}%`}
+                            {d.id === "normal" ? "Sin recargo" : `+${Math.round((deliverySurcharges[d.id] - 1) * 100)}%`}
                           </p>
                         </button>
                       ))}
@@ -904,16 +895,24 @@ export default function CotizarPage() {
                     <p className="text-xs font-semibold uppercase tracking-wide text-text-muted">
                       Desglose de Precios
                     </p>
-                    <div className="mt-3 divide-y divide-border">
-                      {getPriceBreakdown().map((item, i) => (
-                        <div
-                          key={i}
-                          className="flex items-center justify-between py-2 text-sm"
-                        >
-                          <span className="text-text-secondary">{item.label}</span>
-                          <span className="font-medium text-text">{item.value}</span>
-                        </div>
-                      ))}
+                    <div className="mt-3 space-y-3">
+                      <div className="grid grid-cols-3 gap-2 text-xs font-semibold uppercase tracking-wide text-text-muted">
+                        <span>Concepto</span>
+                        <span className="text-center">Valor/und × Cant</span>
+                        <span className="text-right">Subtotal</span>
+                      </div>
+                      <div className="divide-y divide-border">
+                        {getPriceBreakdown().map((item, i) => (
+                          <div
+                            key={i}
+                            className="grid grid-cols-3 gap-2 py-2 text-sm"
+                          >
+                            <span className="text-text-secondary">{item.label}</span>
+                            <span className="text-center font-medium text-text">{item.value}</span>
+                            <span className="text-right font-semibold text-text">{item.total}</span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
 
