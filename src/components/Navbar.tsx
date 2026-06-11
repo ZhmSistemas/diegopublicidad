@@ -78,7 +78,7 @@ export default function Navbar() {
                 {user ? (
                   <>
                     <div className="border-b border-white/10 px-4 py-2 text-sm text-white/60">
-                      {user.name}
+                      {user.name ?? "Usuario"}
                     </div>
                     {isAdmin && (
                       <Link
@@ -163,7 +163,7 @@ export default function Navbar() {
             <hr className="border-white/10" />
             {user ? (
               <div className="space-y-1 px-3">
-                <p className="text-xs text-white/40">{user.name}</p>
+                <p className="text-xs text-white/40">{user.name ?? "Usuario"}</p>
                 <button
                   onClick={() => {
                     logout();
