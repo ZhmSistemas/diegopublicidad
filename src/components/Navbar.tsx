@@ -71,7 +71,7 @@ export default function Navbar() {
               onClick={() => setShowDropdown(!showDropdown)}
               className="flex h-8 w-8 items-center justify-center rounded-full border border-white/20 text-sm font-medium text-white transition-colors hover:border-white/50"
             >
-              {user ? user.name.charAt(0).toUpperCase() : <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="h-4 w-4"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>}
+              {user?.name ? user.name.charAt(0).toUpperCase() : <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="h-4 w-4"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>}
             </button>
             {showDropdown && (
               <div className="absolute right-0 mt-2 w-48 rounded-lg border border-white/10 bg-black py-2 shadow-xl">
