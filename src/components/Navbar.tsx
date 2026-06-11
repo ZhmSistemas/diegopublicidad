@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const navLinks = [
   { href: "/", label: "Inicio" },
@@ -13,6 +13,30 @@ const navLinks = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [user, setUser] = useState<{ name: string } | null>(null);
+  const [showDropdown, setShowDropdown] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const stored = localStorage.getItem("dp_user");
+    if (stored) setUser(JSON.parse(stored));
+  }, []);
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setShowDropdown(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  function logout() {
+    localStorage.removeItem("dp_user");
+    setUser(null);
+    setShowDropdown(false);
+  }
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-black">
@@ -43,6 +67,48 @@ export default function Navbar() {
           >
             Solicitar Cotización
           </Link>
+          <div ref={dropdownRef} className="relative">
+            <button
+              onClick={() => setShowDropdown(!showDropdown)}
+              className="flex h-8 w-8 items-center justify-center rounded-full border border-white/20 text-sm font-medium text-white transition-colors hover:border-white/50"
+            >
+              {user ? user.name.charAt(0).toUpperCase() : <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="h-4 w-4"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>}
+            </button>
+            {showDropdown && (
+              <div className="absolute right-0 mt-2 w-48 rounded-lg border border-white/10 bg-black py-2 shadow-xl">
+                {user ? (
+                  <>
+                    <div className="border-b border-white/10 px-4 py-2 text-sm text-white/60">
+                      {user.name}
+                    </div>
+                    <button
+                      onClick={logout}
+                      className="w-full px-4 py-2 text-left text-sm text-white/70 transition-colors hover:bg-white/10 hover:text-white"
+                    >
+                      Cerrar sesión
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <Link
+                      href="/auth/login"
+                      onClick={() => setShowDropdown(false)}
+                      className="block px-4 py-2 text-sm text-white/70 transition-colors hover:bg-white/10 hover:text-white"
+                    >
+                      Iniciar sesión
+                    </Link>
+                    <Link
+                      href="/auth/register"
+                      onClick={() => setShowDropdown(false)}
+                      className="block px-4 py-2 text-sm text-white/70 transition-colors hover:bg-white/10 hover:text-white"
+                    >
+                      Registrarse
+                    </Link>
+                  </>
+                )}
+              </div>
+            )}
+          </div>
         </nav>
 
         <button
