@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
+import { useSession, signOut } from "next-auth/react";
+import { LayoutDashboard } from "lucide-react";
 
 const navLinks = [
   { href: "/", label: "Inicio" },
@@ -13,14 +15,12 @@ const navLinks = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [user, setUser] = useState<{ name: string } | null>(null);
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const { data: session } = useSession();
 
-  useEffect(() => {
-    const stored = localStorage.getItem("dp_user");
-    if (stored) setUser(JSON.parse(stored));
-  }, []);
+  const user = session?.user;
+  const isAdmin = session?.user?.isAdmin;
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
@@ -33,8 +33,7 @@ export default function Navbar() {
   }, []);
 
   function logout() {
-    localStorage.removeItem("dp_user");
-    setUser(null);
+    signOut({ callbackUrl: "/" });
     setShowDropdown(false);
   }
 
@@ -81,6 +80,16 @@ export default function Navbar() {
                     <div className="border-b border-white/10 px-4 py-2 text-sm text-white/60">
                       {user.name}
                     </div>
+                    {isAdmin && (
+                      <Link
+                        href="/dashboard"
+                        onClick={() => setShowDropdown(false)}
+                        className="flex items-center gap-2 px-4 py-2 text-sm text-white/70 transition-colors hover:bg-white/10 hover:text-white"
+                      >
+                        <LayoutDashboard className="h-4 w-4" />
+                        Dashboard
+                      </Link>
+                    )}
                     <button
                       onClick={logout}
                       className="w-full px-4 py-2 text-left text-sm text-white/70 transition-colors hover:bg-white/10 hover:text-white"
@@ -141,6 +150,48 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
+            {isAdmin && (
+              <Link
+                href="/dashboard"
+                onClick={() => setOpen(false)}
+                className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-white/70 transition-colors hover:bg-white/10 hover:text-white"
+              >
+                <LayoutDashboard className="h-4 w-4" />
+                Dashboard
+              </Link>
+            )}
+            <hr className="border-white/10" />
+            {user ? (
+              <div className="space-y-1 px-3">
+                <p className="text-xs text-white/40">{user.name}</p>
+                <button
+                  onClick={() => {
+                    logout();
+                    setOpen(false);
+                  }}
+                  className="w-full rounded-lg px-3 py-2 text-left text-sm font-medium text-white/70 transition-colors hover:bg-white/10 hover:text-white"
+                >
+                  Cerrar sesión
+                </button>
+              </div>
+            ) : (
+              <div className="space-y-1 px-3">
+                <Link
+                  href="/auth/login"
+                  onClick={() => setOpen(false)}
+                  className="block rounded-lg px-3 py-2 text-sm font-medium text-white/70 transition-colors hover:bg-white/10 hover:text-white"
+                >
+                  Iniciar sesión
+                </Link>
+                <Link
+                  href="/auth/register"
+                  onClick={() => setOpen(false)}
+                  className="block rounded-lg px-3 py-2 text-sm font-medium text-white/70 transition-colors hover:bg-white/10 hover:text-white"
+                >
+                  Registrarse
+                </Link>
+              </div>
+            )}
           </nav>
         </div>
       )}
