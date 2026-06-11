@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const contactInfo = [
@@ -11,9 +12,11 @@ export default function ContactoPage() {
   return (
     <>
       <section className="relative overflow-hidden bg-black py-20">
-        <img
+        <Image
           src="https://res.cloudinary.com/zhamat-tecnologia/image/upload/v1781113308/diego/contactanos_rjj18p.jpg"
           alt=""
+          width={1200}
+          height={600}
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-black/60" />
@@ -120,6 +123,17 @@ export default function ContactoPage() {
                   Solicitar una cotización
                   <span aria-hidden="true">&rarr;</span>
                 </Link>
+              </div>
+              <div className="mt-8 overflow-hidden rounded-xl">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.963532814159!2d-74.078179!3d4.60971!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f99a1c8b1c6c5%3A0x7e8b7c8f8a8b8c8d!2sCl.%209%20%2326%2C%20Bogot%C3%A1!5e0!3m2!1ses-419!2sco!4v1"
+                  width="100%"
+                  height="250"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
               </div>
             </div>
           </div>
