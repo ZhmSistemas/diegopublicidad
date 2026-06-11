@@ -168,14 +168,25 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative bg-surface-secondary py-28">
-        <div className="pointer-events-none absolute left-8 top-8 h-[280px] w-[280px] rounded-full bg-primary/30" />
-        <div className="pointer-events-none absolute bottom-8 right-8 h-[220px] w-[220px] rounded-full bg-accent/30" />
+      <section className="relative overflow-hidden bg-black py-28">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 h-full w-full object-cover"
+        >
+          <source
+            src="https://res.cloudinary.com/zhamat-tecnologia/video/upload/v1781144259/diego/Fondo_para_v%C3%ADdeo_HD_2018_esftwy.mp4"
+            type="video/mp4"
+          />
+        </video>
+        <div className="absolute inset-0 bg-black/60" />
         <div className="container-page relative text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-text">
+          <h2 className="text-3xl font-bold tracking-tight text-white">
             ¿Listo para tu próximo proyecto?
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-text-secondary">
+          <p className="mx-auto mt-4 max-w-xl text-white/80">
             Solicita una cotización sin compromiso y descubre la calidad de
             nuestro servicio.
           </p>
