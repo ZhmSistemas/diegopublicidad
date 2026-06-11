@@ -77,9 +77,10 @@ export default function Navbar() {
               <div className="absolute right-0 mt-2 w-48 rounded-lg border border-white/10 bg-black py-2 shadow-xl">
                 {user ? (
                   <>
-                    <div className="border-b border-white/10 px-4 py-2 text-sm text-white/60">
+                    <div className="px-4 py-2 text-xs text-white/80 text-center">
                       {user.name ?? "Usuario"}
                     </div>
+                    <hr className="mx-2 border-white/60 mb-4" />
                     {isAdmin && (
                       <Link
                         href="/dashboard"
