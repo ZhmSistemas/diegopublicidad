@@ -120,9 +120,47 @@ export default function ServiciosPage() {
                 className={`flex items-center justify-center rounded-xl bg-surface-secondary p-8 ${i % 2 === 0 ? "lg:order-2" : "lg:order-1"}`}
               >
                 <div className="text-center">
-                  <span className="text-6xl">
-                    {["🖨️", "⚙️", "📐", "🎨", "📑", "✨"][i]}
-                  </span>
+                  {i === 0 ? (
+                    <img
+                      src="https://res.cloudinary.com/zhamat-tecnologia/image/upload/v1781138292/diego/impresiondigital_qpmi45.png"
+                      alt="Impresión Digital"
+                      className="h-48 w-full object-contain"
+                    />
+                  ) : i === 1 ? (
+                    <img
+                      src="https://res.cloudinary.com/zhamat-tecnologia/image/upload/v1781138651/diego/impresionoffset_m0dqgc.png"
+                      alt="Impresión Offset"
+                      className="h-48 w-full object-contain"
+                    />
+                  ) : i === 2 ? (
+                    <img
+                      src="https://res.cloudinary.com/zhamat-tecnologia/image/upload/v1781138792/diego/grandesformatos_fihvsh.png"
+                      alt="Grandes Formatos"
+                      className="h-48 w-full object-contain"
+                    />
+                  ) : i === 3 ? (
+                    <img
+                      src="https://res.cloudinary.com/zhamat-tecnologia/image/upload/v1781138899/diego/disenografico_cvxhkb.png"
+                      alt="Diseño Gráfico"
+                      className="h-48 w-full object-contain"
+                    />
+                  ) : i === 4 ? (
+                    <img
+                      src="https://res.cloudinary.com/zhamat-tecnologia/image/upload/v1781139411/diego/especiales_uin3t3.png"
+                      alt="Acabados Especiales"
+                      className="h-48 w-full object-contain"
+                    />
+                  ) : i === 5 ? (
+                    <img
+                      src="https://res.cloudinary.com/zhamat-tecnologia/image/upload/v1781139576/diego/corporativa_ucmfsh.jpg"
+                      alt="Papelería Corporativa"
+                      className="h-48 w-full object-contain"
+                    />
+                  ) : (
+                    <span className="text-6xl">
+                      {["🖨️", "⚙️", "📐", "🎨", "📑", "✨"][i]}
+                    </span>
+                  )}
                   <p className="mt-4 text-sm font-medium text-text-muted">
                     {cat.title}
                   </p>

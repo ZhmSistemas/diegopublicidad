@@ -4,32 +4,32 @@ const services = [
   {
     title: "Impresión Digital",
     desc: "Impresión de alta calidad en tiradas cortas y medianas con tiempos de entrega rápidos.",
-    icon: "🖨️",
+    icon: "https://res.cloudinary.com/zhamat-tecnologia/image/upload/v1781138292/diego/impresiondigital_qpmi45.png",
   },
   {
     title: "Impresión Offset",
     desc: "Producción masiva con calidad superior para grandes volúmenes de impresión.",
-    icon: "⚙️",
+    icon: "https://res.cloudinary.com/zhamat-tecnologia/image/upload/v1781138651/diego/impresionoffset_m0dqgc.png",
   },
   {
     title: "Grandes Formatos",
     desc: "Banners, lonas, vinilos y gigantografías para exterior e interior.",
-    icon: "📐",
+    icon: "https://res.cloudinary.com/zhamat-tecnologia/image/upload/v1781138792/diego/grandesformatos_fihvsh.png",
   },
   {
     title: "Diseño Gráfico",
     desc: "Creamos piezas gráficas profesionales adaptadas a tu marca y necesidades.",
-    icon: "🎨",
+    icon: "https://res.cloudinary.com/zhamat-tecnologia/image/upload/v1781138899/diego/disenografico_cvxhkb.png",
   },
   {
     title: "Acabados Especiales",
     desc: "Laminado, plastificado, relieve, corte láser y más acabados de calidad.",
-    icon: "✨",
+    icon: "https://res.cloudinary.com/zhamat-tecnologia/image/upload/v1781139411/diego/especiales_uin3t3.png",
   },
   {
     title: "Papelería Corporativa",
     desc: "Tarjetas, sobres, folders, blocks y toda la línea corporativa de tu empresa.",
-    icon: "📑",
+    icon: "https://res.cloudinary.com/zhamat-tecnologia/image/upload/v1781139576/diego/corporativa_ucmfsh.jpg",
   },
 ];
 
@@ -98,7 +98,11 @@ export default function Home() {
                 key={service.title}
                 className="group rounded-xl border border-border bg-white p-6 transition-shadow hover:shadow-lg"
               >
-                <span className="mb-4 block text-3xl">{service.icon}</span>
+                {service.icon.startsWith("http") ? (
+                  <img src={service.icon} alt={service.title} className="mb-4 h-36 w-full object-contain" />
+                ) : (
+                  <span className="mb-4 block text-3xl">{service.icon}</span>
+                )}
                 <h3 className="text-lg font-semibold text-text">
                   {service.title}
                 </h3>
