@@ -47,7 +47,7 @@ export default function Navbar() {
           <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent text-sm font-bold text-white">
             DP
           </span>
-          Diego Publicidad
+          Diego<i className="text-red-600">Publicidad</i>
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
