@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const services = [
@@ -167,25 +168,21 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-black py-20">
-        <img
-          src="https://images.unsplash.com/photo-1554224155-8726b3f00c44?w=1600&q=80"
-          alt=""
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-        <div className="absolute inset-0 bg-black/60" />
+      <section className="relative bg-surface-secondary py-28">
+        <div className="pointer-events-none absolute left-8 top-8 h-[280px] w-[280px] rounded-full bg-primary/30" />
+        <div className="pointer-events-none absolute bottom-8 right-8 h-[220px] w-[220px] rounded-full bg-accent/30" />
         <div className="container-page relative text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-white">
+          <h2 className="text-3xl font-bold tracking-tight text-text">
             ¿Listo para tu próximo proyecto?
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-gray-300">
+          <p className="mx-auto mt-4 max-w-xl text-text-secondary">
             Solicita una cotización sin compromiso y descubre la calidad de
             nuestro servicio.
           </p>
           <div className="mt-8">
             <Link
               href="/cotizar"
-              className="inline-flex items-center gap-2 rounded-lg bg-gray-900 px-8 py-3 text-sm font-semibold text-white transition-all hover:bg-gray-800"
+              className="inline-flex items-center gap-2 rounded-lg bg-accent px-8 py-3 text-sm font-semibold text-white transition-all hover:bg-accent-light"
             >
               Solicitar Cotización
               <span aria-hidden="true">&rarr;</span>
