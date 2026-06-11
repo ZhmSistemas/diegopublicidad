@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { useSession, signOut } from "next-auth/react";
-import { LayoutDashboard } from "lucide-react";
+import { LayoutDashboard, LogOut } from "lucide-react";
 
 const navLinks = [
   { href: "/", label: "Inicio" },
@@ -85,7 +85,7 @@ export default function Navbar() {
                       <Link
                         href="/dashboard"
                         onClick={() => setShowDropdown(false)}
-                        className="flex items-center gap-2 px-4 py-2 text-sm text-white/70 transition-colors hover:bg-white/10 hover:text-white"
+                        className="flex items-center gap-2 px-4 py-2 text-sm text-white/70 transition-colors hover:bg-white/10 hover:text-white cursor-pointer"
                       >
                         <LayoutDashboard className="h-4 w-4" />
                         Dashboard
@@ -93,8 +93,9 @@ export default function Navbar() {
                     )}
                     <button
                       onClick={logout}
-                      className="w-full px-4 py-2 text-left text-sm text-white/70 transition-colors hover:bg-white/10 hover:text-white"
+                      className="flex w-full items-center gap-2 px-4 py-2 text-left text-sm text-white/70 transition-colors hover:bg-white/10 hover:text-white"
                     >
+                      <LogOut className="h-4 w-4" />
                       Cerrar sesión
                     </button>
                   </>
@@ -170,8 +171,9 @@ export default function Navbar() {
                     logout();
                     setOpen(false);
                   }}
-                  className="w-full rounded-lg px-3 py-2 text-left text-sm font-medium text-white/70 transition-colors hover:bg-white/10 hover:text-white"
+                  className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-left text-sm font-medium text-white/70 transition-colors hover:bg-white/10 hover:text-white"
                 >
+                  <LogOut className="h-4 w-4" />
                   Cerrar sesión
                 </button>
               </div>
