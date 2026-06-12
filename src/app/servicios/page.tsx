@@ -141,9 +141,8 @@ export default function ServiciosPage() {
                       className="h-48 w-full object-contain"
                     />
                   ) : i === 3 ? (
-                    <img
-                      src="https://res.cloudinary.com/zhamat-tecnologia/image/upload/v1781138899/diego/disenografico_cvxhkb.png"
-                      alt="Diseño Gráfico"
+                    <VideoInView
+                      src="https://res.cloudinary.com/zhamat-tecnologia/video/upload/v1781232330/diego/artegrafico_movimiento_wocjbh.mp4"
                       className="h-48 w-full object-contain"
                     />
                   ) : i === 4 ? (
