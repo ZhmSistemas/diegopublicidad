@@ -145,15 +145,13 @@ export default function ServiciosPage() {
                       className="h-48 w-full object-contain"
                     />
                   ) : i === 4 ? (
-                    <img
-                      src="https://res.cloudinary.com/zhamat-tecnologia/image/upload/v1781139411/diego/especiales_uin3t3.png"
-                      alt="Acabados Especiales"
+                    <VideoInView
+                      src="https://res.cloudinary.com/zhamat-tecnologia/video/upload/v1781284937/diego/papeleria_movimiento_efjmbp.mp4"
                       className="h-48 w-full object-contain"
                     />
                   ) : i === 5 ? (
-                    <img
-                      src="https://res.cloudinary.com/zhamat-tecnologia/image/upload/v1781139576/diego/corporativa_ucmfsh.jpg"
-                      alt="Papelería Corporativa"
+                   <VideoInView
+                      src="https://res.cloudinary.com/zhamat-tecnologia/video/upload/v1781286770/diego/acabados_movimientos_idutl5.mp4"
                       className="h-48 w-full object-contain"
                     />
                   ) : (
