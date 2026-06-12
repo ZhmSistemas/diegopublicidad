@@ -1,5 +1,6 @@
 import Link from "next/link";
 import VideoInView from "@/components/VideoInView";
+import Image from "next/image";
 
 const serviceCategories = [
   {
@@ -74,9 +75,11 @@ export default function ServiciosPage() {
   return (
     <>
       <section className="relative overflow-hidden bg-black py-20">
-        <img
+        <Image
           src="https://res.cloudinary.com/zhamat-tecnologia/image/upload/v1781113224/diego/servicios_mvxazs.jpg"
           alt=""
+          width={1200}
+          height={800}
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-black/60" />
@@ -125,7 +128,6 @@ export default function ServiciosPage() {
                     <VideoInView
                       src="https://res.cloudinary.com/zhamat-tecnologia/video/upload/v1781227468/diego/impresiondigital_movimiento_tjjsmh.mp4"
                       className="h-48 w-full object-contain"
-                      loop
                     />
                   ) : i === 1 ? (
                     <VideoInView

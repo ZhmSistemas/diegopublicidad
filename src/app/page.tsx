@@ -1,11 +1,11 @@
-import Image from "next/image";
 import Link from "next/link";
+import VideoInView from "@/components/VideoInView";
 
 const services = [
   {
     title: "Impresión Digital",
     desc: "Impresión de alta calidad en tiradas cortas y medianas con tiempos de entrega rápidos.",
-    icon: "https://res.cloudinary.com/zhamat-tecnologia/image/upload/v1781138292/diego/impresiondigital_qpmi45.png",
+    icon: "https://res.cloudinary.com/zhamat-tecnologia/video/upload/v1781227468/diego/impresiondigital_movimiento_tjjsmh.mp4",
   },
   {
     title: "Impresión Offset",
@@ -99,7 +99,9 @@ export default function Home() {
                 key={service.title}
                 className="group rounded-xl border border-border bg-white p-6 transition-shadow hover:shadow-lg"
               >
-                {service.icon.startsWith("http") ? (
+                {service.icon.endsWith(".mp4") ? (
+                  <VideoInView src={service.icon} className="mb-4 h-36 w-full object-contain" loop />
+                ) : service.icon.startsWith("http") ? (
                   <img src={service.icon} alt={service.title} className="mb-4 h-36 w-full object-contain" />
                 ) : (
                   <span className="mb-4 block text-3xl">{service.icon}</span>
