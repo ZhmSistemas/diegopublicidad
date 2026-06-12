@@ -1,4 +1,5 @@
 import Link from "next/link";
+import VideoInView from "@/components/VideoInView";
 
 const serviceCategories = [
   {
@@ -96,12 +97,12 @@ export default function ServiciosPage() {
             <div
               key={cat.title}
               className={`grid items-center gap-8 ${
-                i % 2 === 0 ? "lg:grid-cols-2" : "lg:grid-cols-2 lg:direction-rtl"
+                i % 2 === 0
+                  ? "lg:grid-cols-2"
+                  : "lg:grid-cols-2 lg:direction-rtl"
               }`}
             >
-              <div
-                className={`${i % 2 === 0 ? "lg:order-1" : "lg:order-2"}`}
-              >
+              <div className={`${i % 2 === 0 ? "lg:order-1" : "lg:order-2"}`}>
                 <h2 className="text-2xl font-bold text-text">{cat.title}</h2>
                 <p className="mt-3 text-text-secondary">{cat.desc}</p>
                 <ul className="mt-6 space-y-2">
@@ -121,15 +122,14 @@ export default function ServiciosPage() {
               >
                 <div className="text-center">
                   {i === 0 ? (
-                    <img
-                      src="https://res.cloudinary.com/zhamat-tecnologia/image/upload/v1781138292/diego/impresiondigital_qpmi45.png"
-                      alt="Impresión Digital"
+                    <VideoInView
+                      src="https://res.cloudinary.com/zhamat-tecnologia/video/upload/v1781227468/diego/impresiondigital_movimiento_tjjsmh.mp4"
                       className="h-48 w-full object-contain"
+                      loop
                     />
                   ) : i === 1 ? (
-                    <img
-                      src="https://res.cloudinary.com/zhamat-tecnologia/image/upload/v1781138651/diego/impresionoffset_m0dqgc.png"
-                      alt="Impresión Offset"
+                    <VideoInView
+                      src="https://res.cloudinary.com/zhamat-tecnologia/video/upload/v1781229844/diego/offset_movimiento_lsewvx.mp4"
                       className="h-48 w-full object-contain"
                     />
                   ) : i === 2 ? (
