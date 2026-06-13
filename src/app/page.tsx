@@ -5,7 +5,7 @@ const services = [
   {
     title: "Impresión Digital",
     desc: "Impresión de alta calidad en tiradas cortas y medianas con tiempos de entrega rápidos.",
-    icon: "https://res.cloudinary.com/zhamat-tecnologia/video/upload/v1781227468/diego/impresiondigital_movimiento_tjjsmh.mp4",
+    icon: "https://res.cloudinary.com/zhamat-tecnologia/image/upload/v1781138292/diego/impresiondigital_qpmi45.png",
   },
   {
     title: "Impresión Offset",
@@ -25,7 +25,7 @@ const services = [
   {
     title: "Acabados Especiales",
     desc: "Laminado, plastificado, relieve, corte láser y más acabados de calidad.",
-    icon: "https://res.cloudinary.com/zhamat-tecnologia/image/upload/v1781139411/diego/especiales_uin3t3.png",
+    icon: "https://res.cloudinary.com/zhamat-tecnologia/image/upload/v1781364702/diego/ChatGPT_Image_12_jun_2026_12_42_06_mne5bx.png",
   },
   {
     title: "Papelería Corporativa",
