@@ -5,7 +5,7 @@ const services = [
   {
     title: "Impresión Digital",
     desc: "Impresión de alta calidad en tiradas cortas y medianas con tiempos de entrega rápidos.",
-    icon: "https://res.cloudinary.com/zhamat-tecnologia/image/upload/v1781138292/diego/impresiondigital_qpmi45.png",
+    icon: "https://res.cloudinary.com/zhamat-tecnologia/image/upload/v1781364976/diego/impresiondigital_kxggsv.png",
   },
   {
     title: "Impresión Offset",
